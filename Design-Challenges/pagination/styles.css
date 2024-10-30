@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Poppins", sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background: #4b6cb7; /* fallback for old browsers */
+	background: -webkit-linear-gradient(
+		to right,
+		#182848,
+		#4b6cb7
+	); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(
+		to right,
+		#182848,
+		#4b6cb7
+	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.pagination {
+	display: flex;
+	align-items: center;
+	background-color: #092d52;
+	padding: 18px 10px;
+	border-radius: 5px;
+	width: 100%;
+	max-width: 600px;
+	box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.pagination-numbers {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: auto;
+}
+
+.pagination-number {
+	width: 40px;
+	height: 40px;
+	color: #bdc3c7;
+}
+
+.pagination-button {
+	padding: 5px 10px;
+	color: #cf2a6f;
+}
+
+.pagination-button,
+.pagination-number {
+	background-color: transparent;
+	border: none;
+
+	cursor: pointer;
+	margin: 0 10px;
+	font-size: 22px;
+}
+
+.pagination-button:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.pagination-number.active {
+	color: #cf2a6f;
+	font-weight: bold;
+	border: solid 2px #cf2a6f;
+	border-radius: 50%;
+}
+
+.pagination-ellipsis {
+	color: #bdc3c7;
+	padding: 5px;
+	font-size: 20px;
+}
+
+.pagination-button:hover:not(:disabled),
+.pagination-number:hover:not(.active) {
+	background-color: #4a6278;
+	border-radius: 3px;
+}

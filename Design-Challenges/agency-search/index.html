@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link
+			href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+			rel="stylesheet" />
+		<title>Agency Search</title>
+	</head>
+	<body
+		class="bg-slate-200 min-h-screen w-full flex items-center justify-center">
+		<section class="w-[60rem] rounded-md bg-white py-8 px-6 mx-8">
+			<div class="flex flex-col md:flex-row justify-between">
+				<div class="mb-8 md:mb-0">
+					<div class="flex flex-col gap-4">
+						<h1 class="font-bold text-2xl">Explore agencies</h1>
+						<p class="w-full md:w-[20rem] text-sm">
+							Select a region and the city to discover the best digital
+							developer agencies
+						</p>
+					</div>
+				</div>
+
+				<!-- Select 1 -->
+				<div class="relative w-full md:w-1/2 mb-4 md:mr-4">
+					<select
+						class="appearance-none w-full border-2 border-slate-200 p-2 rounded-md hover:border-[#2fd09c] transiton-all duration-300 outline-none">
+						<option value="Country">Country</option>
+						<option value="France">France</option>
+						<option value="Germany ">Germany</option>
+						<option value="Spain ">Spain</option>
+					</select>
+					<span
+						class="absolute right-0.5 top-0.5 bg-[#2fd09c] w-8 h-[2.5rem] rounded-r-md z-10 pointer-events-none flex items-center justify-center">
+						<i class="bx bx-chevron-down text-2xl text-white"></i
+					></span>
+				</div>
+
+				<!-- Select 2 -->
+				<div class="relative w-full md:w-1/2 mr-4">
+					<select
+						class="appearance-none w-full border-2 border-slate-200 p-2 rounded-lg hover:border-[#2fd09c] transiton-all duration-300 outline-none">
+						<option value="City">City</option>
+						<option value="Paris">Paris</option>
+						<option value="Berlin">Berlin</option>
+						<option value="Madrid">Madrid</option>
+					</select>
+					<span
+						class="absolute right-0.5 top-0.5 bg-[#2fd09c] w-8 h-[2.5rem] rounded-r-md z-10 pointer-events-none flex items-center justify-center">
+						<i class="bx bx-chevron-down text-2xl text-white"></i
+					></span>
+				</div>
+				<button
+					class="h-[2.5rem] bg-[#2fd09c] py-2 px-6 rounded-md text-white font-semibold shadow-xl shadow-[#2fd09c]/20 hover:shadow-[#2fd09c]/30 hover:translate-y-[-0.2rem] transiton-all duration-300 mt-8 md:mt-0">
+					Find
+				</button>
+			</div>
+
+			<div
+				class="flex flex-col gap-8 p-6 bg-slate-200 mt-8 rounded-md md:flex-row">
+				<div class="flex gap-2">
+					<i class="bx bx-search-alt-2 text-3xl text-[#2fd09c]"></i>
+					<div>
+						<h2 class="font-semibold text-lg mb-2">Get Discovered</h2>
+						<p class="text-sm">
+							Get listed in location based agency directories and attract
+							business opportunities.
+						</p>
+					</div>
+				</div>
+				<div class="flex gap-2">
+					<i class="bx bxs-file text-3xl text-[#2fd09c]"></i>
+					<div>
+						<h2 class="font-semibold text-lg mb-2">Get Discovered</h2>
+						<p class="text-sm">
+							Get listed in location based agency directories and attract
+							business opportunities.
+						</p>
+					</div>
+				</div>
+				<div class="flex gap-2">
+					<i class="bx bx-briefcase text-3xl text-[#2fd09c]"></i>
+					<div>
+						<h2 class="font-semibold text-lg mb-2">Get Discovered</h2>
+						<p class="text-sm">
+							Get listed in location based agency directories and attract
+							business opportunities.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>
+</html>

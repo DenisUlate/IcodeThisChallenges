@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>React Tailwind Shopping List</title>
+		<script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+		<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+		<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+	</head>
+	<body>
+		<div id="root"></div>
+		<script type="text/babel">
+			const { useState } = React;
+
+			function App() {
+				const [activePanel, setActivePanel] = useState("option-3");
+				const [activeList, setActiveList] = useState("article-1");
+
+				const lists = {
+					"article-1": {
+						title: "Groceries",
+						items: [
+							{ id: "list-3-1-1", label: "Butter", checked: true },
+							{ id: "list-3-1-2", label: "Orange Juice", checked: false },
+							{ id: "list-3-1-3", label: "Cheese", checked: true },
+							{ id: "list-3-1-4", label: "Chocolate", checked: true },
+							{ id: "list-3-1-5", label: "Corn Flakes", checked: false },
+							{ id: "list-3-1-6", label: "Potatoes", checked: false },
+							{ id: "list-3-1-7", label: "Avocado", checked: false },
+						],
+					},
+					"article-2": {
+						title: "Electronic",
+						items: [
+							{ id: "list-3-2-1", label: "Batteries", checked: false },
+							{
+								id: "list-3-2-2",
+								label: "Charging cable iPhone",
+								checked: false,
+							},
+							{ id: "list-3-2-3", label: "Extension Cable", checked: true },
+						],
+					},
+					"article-3": {
+						title: "Books",
+						items: [
+							{
+								id: "list-3-3-1",
+								label: "10 ways to make money as a developer",
+								checked: false,
+							},
+							{
+								id: "list-3-3-2",
+								label: "How to stop procrastinating",
+								checked: false,
+							},
+							{ id: "list-3-3-3", label: "Whats next?", checked: true },
+						],
+					},
+					"article-4": {
+						title: "Car",
+						items: [
+							{ id: "list-3-4-1", label: "Roof rack", checked: false },
+							{ id: "list-3-4-2", label: "Diesel", checked: false },
+						],
+					},
+				};
+
+				return (
+					<div
+						className="bg-gradient-to-r from-red-400 to-orange-300 flex justify-center items-center min-h-screen px-6
+                    
+                    before:-inset-0
+                    before:fixed
+                    before:opacity-30
+                    before:bg-cover
+                    before:bg-center
+                    before:bg-no-repeat
+                    before:-z-10">
+						<div
+							className={`bg-white/30 backdrop-blur-sm text-[#181028] shadow-lg w-full max-w-2xl grid sm:grid-cols-[14rem_auto]
+                        ${
+													activePanel === "option-1"
+														? "[&_#nav-1]:text-slate-900 [&_#nav-1_span]:bg-gray-200/30 before:[&_#nav-1]:inset-0 before:[&_#nav-1]:bg-white"
+														: ""
+												}
+                        ${
+													activePanel === "option-2"
+														? "[&_#nav-2]:text-slate-900 [&_#nav-2_span]:bg-gray-200/30 before:[&_#nav-2]:inset-0 before:[&_#nav-2]:bg-white"
+														: ""
+												}
+                        ${
+													activePanel === "option-3"
+														? "[&_#nav-3]:text-slate-900 [&_#nav-3_span]:bg-gray-200/30 before:[&_#nav-3]:inset-0 before:[&_#nav-3]:bg-white"
+														: ""
+												}
+                        ${
+													activePanel === "option-4"
+														? "[&_#nav-4]:text-slate-900 [&_#nav-4_span]:bg-gray-200/30 before:[&_#nav-4]:inset-0 before:[&_#nav-4]:bg-white"
+														: ""
+												}
+                        ${
+													activePanel === "option-1"
+														? "[&_#panel-1]:translate-x-0 [&_#panel-1]:delay-500"
+														: ""
+												}
+                        ${
+													activePanel === "option-2"
+														? "[&_#panel-2]:translate-x-0 [&_#panel-2]:delay-500"
+														: ""
+												}
+                        ${
+													activePanel === "option-3"
+														? "[&_#panel-3]:translate-x-0 [&_#panel-3]:delay-500"
+														: ""
+												}
+                        ${
+													activePanel === "option-4"
+														? "[&_#panel-4]:translate-x-0 [&_#panel-4]:delay-500"
+														: ""
+												}`}>
+							<section className="bg-zinc-950/80 text-white">
+								<header className="p-6">
+									<input
+										type="text"
+										className="rounded-full py-2 px-6 w-full bg-gray-600 focus:border-none focus:outline-none focus-ring-0 focus:bg-gray-400 text-gray-900"
+										placeholder="Search"
+									/>
+								</header>
+								<nav className="[&>label]:flex [&>label]:items-center [&>label]:justify-between [&>label>span]:transition-all [&>label>span]:duration-300 [&>label]: [&>label]:overflow-hidden [&>label]:whitespace-nowrap [&>label]:text-sm [&>label]:py-2 [&>label]:px-4 [&>label]:relative [&>label]:isolate [&>label]:cursor-pointer before:[&>label]:absolute before:[&>label]:inset-[0_100%_0_0] before:[&>label]:bg-white before:[&>label]:transition-all before:[&>label]:duration-300 before:[&>label]:-z-10 hover:before:[&>label]:inset-0 hover:[&>label]:text-gray-900 [&_span]:bg-gray-800 [&_span]:rounded-full [&_span]:p-1 [&_span]:px-3 [&_span]:text-xs">
+									{["Reminders", "To do list", "Shopping list", "Other"].map(
+										(item, index) => (
+											<label
+												key={index}
+												id={`nav-${index + 1}`}
+												className="group"
+												onClick={() => setActivePanel(`option-${index + 1}`)}>
+												{item}
+												<span className="group-hover:bg-gray-300">
+													{index === 2
+														? "4"
+														: index === 1
+														? "9"
+														: index === 0
+														? "2"
+														: "3"}
+												</span>
+											</label>
+										)
+									)}
+								</nav>
+							</section>
+							<main className="grid [grid-template-areas:'stack'] overflow-hidden h-96 [&_section]:[grid-area:stack] [&_section]:-translate-x-full [&_section]:origin-top [&_section]-z-10 [&_section]:transition-all [&_section]:duration-300 [&_section]:ease-out [&_section>h2]:p-6 [&_section>h2]:uppercase [&_section>h2]:font-semibold [&_article>div]:grid [&_article>div]:[grid-template-rows:0fr] [&_article>div]:[transition:grid-template-rows_500ms_ease-in-out] [&_input:checked~div]:[grid-template-rows:1fr] [&_input:checked~label>span]:rotate-90 [&_article>label]:bg-gray-100 [&_article>label]:py-2 [&_article>label]:px-4 [&_article>label]:uppercase [&_article>label]:flex [&_article>label]:items-center [&_article>label]:justify-between [&_article>label]:w-full [&_article>label>span]:transition-all [&_li]:py-1 [&_li]:px-8 [&_input]:sr-only [&_article>div>ul]:overflow-hidden [&_label]:cursor-pointer [&_label:transtion-all [&_label:duration-300 hover:[&_label]:text-red-500 [&_ul_input:checked~label]:line-through [&_ul_input:checked~label]:text-gray-400">
+								{["Reminders", "To Do List", "Shopping List", "Other"].map(
+									(panel, index) => (
+										<section key={index} id={`panel-${index + 1}`}>
+											<h2>{panel}</h2>
+											{index === 2 ? (
+												Object.entries(lists).map(([key, list]) => (
+													<article key={key}>
+														<input
+															type="radio"
+															id={key}
+															name="list"
+															checked={activeList === key}
+															onChange={() => setActiveList(key)}
+														/>
+														<label htmlFor={key}>
+															{list.title}
+															<span className="material-symbols-outlined">
+																more_vert
+															</span>
+														</label>
+														<div>
+															<ul>
+																{list.items.map((item) => (
+																	<li key={item.id}>
+																		<input
+																			type="checkbox"
+																			id={item.id}
+																			className="peer"
+																			defaultChecked={item.checked}
+																		/>
+																		<label htmlFor={item.id}>
+																			{item.label}
+																		</label>
+																	</li>
+																))}
+															</ul>
+														</div>
+													</article>
+												))
+											) : (
+												<p className="p-6">
+													List goes here but probably not today
+												</p>
+											)}
+										</section>
+									)
+								)}
+							</main>
+						</div>
+					</div>
+				);
+			}
+
+			ReactDOM.render(<App />, document.getElementById("root"));
+		</script>
+	</body>
+</html>

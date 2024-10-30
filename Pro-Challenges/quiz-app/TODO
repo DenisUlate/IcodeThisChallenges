@@ -1,0 +1,9 @@
+TODO:
+[X].Add a state to change from Start page to QuizPage.
+[X].Set a bg-color on the option selected.
+[X].Change the Quiz button from Submit to Next when a option is selected.
+[X].Add a state to update the progress bar and the text.
+[X].Add a state to manage options selected to green to correct option or red for wrong option.
+[X].Add a smooth animation when transition from startPage to quizPage.
+[X].block the options after the user alrady submit the answer.
+[X].When the wrong option is selected show the correct option.

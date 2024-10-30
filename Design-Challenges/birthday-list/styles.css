@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol,
+ul,
+menu {
+	list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+	max-inline-size: 100%;
+	max-block-size: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100dvh;
+	width: 100%;
+	font-family: "JetBrains Mono", monospace;
+	font-size: 1rem;
+	line-height: 1.5;
+	color: var(--text-color);
+	background-color: var(--primary-color);
+}
+
+/* Custom properties */
+:root {
+	--primary-color: #ef89b0;
+	--secondary-color: #ffffff;
+
+	--text-color: #333;
+	--text-small-color: #666;
+
+	--gradient-color: linear-gradient(120deg, #e76ed2 0%, #fd6ba5 100%);
+
+	--bg-shadow: 12px 12px 41px 0px #2726266f;
+	--button-shadow: 4px 4px 4px 0px hwb(335 59% 16% / 0.592);
+
+	--font-h2-size: 1.3rem;
+	--font-h3-size: 0.9rem;
+	--font-small-size: 0.75rem;
+}
+
+/* Section */
+section {
+	max-width: 20rem;
+	width: 100%;
+	min-height: 30rem;
+	height: auto;
+	margin: 0.7rem 0;
+	background-color: var(--secondary-color);
+	box-shadow: var(--bg-shadow);
+	border-radius: 1rem;
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+}
+
+h2 {
+	display: flex;
+	flex-wrap: wrap;
+	font-size: var(--font-h2-size);
+	margin: 1rem 0;
+	text-align: center;
+}
+
+h3 {
+	font-size: var(--font-h3-size);
+	text-align: start;
+}
+
+p {
+	font-size: var(--font-small-size);
+	text-align: start;
+}
+
+li {
+	display: flex;
+	margin: 0.5rem 0;
+}
+
+.added-portrait {
+	display: flex;
+	margin: 0.5rem 0;
+	opacity: 0;
+	transform: translateY(-10px);
+	transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.added-portrait.visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+li > img {
+	width: 3rem;
+	height: 3rem;
+	margin-right: 0.5rem;
+	border-radius: 50%;
+}
+
+.portrait-text-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+button {
+	width: 100%;
+	margin-top: auto;
+	padding: 1.2rem 1rem;
+	border: none;
+	border-radius: 0.5rem;
+	background: var(--gradient-color);
+	color: var(--secondary-color);
+	font-size: var(--font-h3-size);
+	font-weight: bold;
+	cursor: pointer;
+	box-shadow: var(--button-shadow);
+	transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+	transform: translateY(-0.1rem);
+	box-shadow: 6px 6px 4px 0px hwb(335 16% 18% / 0.643);
+	border: solid 1px var(--secondary-color);
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<title>Smart Bulb</title>
+		<link
+			href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+			rel="stylesheet" />
+	</head>
+	<body>
+		<div class="container">
+			<!-- Bulb icon -->
+			<i id="bulb-icon" class="bx bx-bulb"></i>
+			<div id="login-section">
+				<form id="login-form">
+					<div>
+						<div class="label-container">
+							<i class="bx bx-user"></i>
+							<label for="username">Username</label>
+						</div>
+						<input
+							type="text"
+							id="username"
+							name="username"
+							placeholder="Enter your username"
+							required />
+					</div>
+					<div>
+						<div class="label-container">
+							<i class="bx bx-lock-open-alt"></i>
+							<label for="password">Password</label>
+						</div>
+						<input
+							type="password"
+							id="password"
+							name="password"
+							placeholder="Enter your password"
+							required />
+					</div>
+					<div>
+						<button class="btn-login" type="submit">Log In</button>
+					</div>
+				</form>
+			</div>
+
+			<section class="hidden" id="switch-section">
+				<img
+					id="img-bulb-dark"
+					class="img-bulb-dark"
+					src="https://img.icons8.com/?size=100&id=42206&format=png&color=000000"
+					alt="img-bulb" />
+				<img
+					id="img-bulb-light"
+					class="img-bulb-light"
+					src="https://img.icons8.com/?size=100&id=51369&format=png&color=000000"
+					alt="img-bulb" />
+				<div class="switch-slider-container">
+					<div class="switch-slider"></div>
+				</div>
+				<button id="btn-switch">OFF</button>
+			</section>
+		</div>
+
+		<script src="main.js"></script>
+	</body>
+</html>

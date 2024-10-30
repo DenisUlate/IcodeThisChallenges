@@ -1,0 +1,203 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	transition: all 800ms ease-in-out;
+}
+
+.hidden {
+	display: none;
+	z-index: -100;
+	opacity: 0;
+	pointer-events: none;
+}
+
+body {
+	font-family: "Roboto", sans-serif;
+	background-color: rgb(215, 216, 218);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100dvh;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	max-width: 20rem;
+	height: 35rem;
+	width: 100%;
+	background-color: #fff;
+	border-radius: 1rem;
+	box-shadow: 0 0 1rem 0.5rem rgba(0, 0, 0, 0.2);
+	padding: 0 1rem;
+}
+
+/** Login section  */
+
+/* bulb icon */
+.bx-bulb {
+	font-size: 10rem;
+	rotate: 180deg;
+	display: block;
+	margin: 1rem auto;
+	color: #2c6ed138;
+}
+
+/* Form */
+form {
+	margin-top: 4rem;
+}
+form > div {
+	display: flex;
+	flex-direction: column;
+	padding: 1rem;
+}
+
+label {
+	font-size: 0.8rem;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #2c6ed1;
+}
+
+.label-container {
+	margin-bottom: 0.4rem;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.label-container > i {
+	font-size: 0.9rem;
+	color: #2c6ed16f;
+}
+
+input {
+	border: 1px solid #ccc;
+	border-radius: 0.5rem;
+	padding: 0.7rem;
+}
+
+input:focus {
+	outline: none;
+	color: rgba(84, 84, 233, 0.413);
+	border: 1px solid rgba(85, 85, 229, 0.401);
+	box-shadow: 0 0 0.5rem 0.2rem rgba(0, 0, 255, 0.2);
+}
+
+input::placeholder {
+	color: #ccc;
+}
+
+.btn-login {
+	background-color: #2c6ed1;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #fff;
+	border: none;
+	border-radius: 0.5rem;
+	padding: 1rem 0.5rem;
+	cursor: pointer;
+}
+
+.btn-login:hover {
+	transition: all 0.3s ease;
+	background-color: #2c6ed1d1;
+}
+
+/** Switch section  */
+img {
+	width: 3rem;
+	height: 3rem;
+	object-fit: cover;
+	border-radius: 0.5rem;
+	cursor: pointer;
+}
+
+.img-bulb-dark {
+	position: absolute;
+	left: 0;
+}
+
+.img-bulb-light {
+	position: absolute;
+	right: 0;
+}
+
+#switch-section {
+	position: relative;
+	margin: auto 0 1.5rem 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 3rem 1rem;
+}
+
+#btn-switch {
+	width: 7rem;
+	height: 7rem;
+	background-color: #fff;
+	color: #2c6ed1;
+	font-weight: bold;
+	font-size: 1rem;
+	border: none;
+	border-radius: 50%;
+	padding: 2rem;
+	cursor: pointer;
+	box-shadow: 0 0 0.5rem 0.2rem rgba(145, 145, 173, 0.2);
+}
+
+#btn-switch:hover {
+	transition: all 0.3s ease;
+	box-shadow: 0 0 0.8rem 0.3rem rgba(108, 116, 239, 0.4);
+}
+
+.switch-slider-container {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 0.25rem;
+	background-color: #737e8d68;
+	border-radius: 0.5rem;
+}
+
+.switch-slider {
+	position: relative;
+	top: -5px;
+	left: 0;
+	width: 1rem;
+	height: 1rem;
+	background-color: #2c4ad1;
+	border-radius: 0.5rem;
+}
+
+/* Switch toggle styles */
+
+body.active {
+	background-color: #122b4f;
+}
+.container.active {
+	background-color: #0c2955;
+	color: #fff;
+}
+
+#bulb-icon.active {
+	color: #163a948b;
+}
+
+#btn-switch.active {
+	background-color: #122b4f;
+}
+
+#btn-switch.active:hover {
+	box-shadow: 0 0 0.8rem 1rem rgba(108, 116, 239, 0.4);
+}
+
+.switch-slider.on {
+	left: calc(100% - 1rem);
+}
+
+.switch-slider-container.active {
+	background-color: #e2e6eae7;
+}

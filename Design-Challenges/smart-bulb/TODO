@@ -1,0 +1,5 @@
+// [].Ver como crear una forma redonda para el switch-slilder-container.
+// [X].Hacer que las imagenes tengan la misma funcionalidad que el botom btn-switch.
+// [X].Cambiar los colores del switch-slider-container y switch-slider.
+// [X].Cuando la ventana de login es visible, la ventana de switch-section debe ocultarse.
+// [X].Remover la propiedad transition-all duration-500ms al body, aplicarlo de forma individual.

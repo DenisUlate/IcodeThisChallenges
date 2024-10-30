@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<link
+			href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+			rel="stylesheet" />
+		<title>Availability</title>
+	</head>
+	<body>
+		<main>
+			<div class="overlay"></div>
+			<!-- card container-->
+			<div style="display: block" class="card-container" id="cardContainer">
+				<h2 class="animate">Edit availability</h2>
+				<p class="animate">
+					Add a "Hire me" button to let know that you're available for new
+					opportunities
+				</p>
+
+				<div class="animate checkbox-container">
+					<div>
+						<input type="checkbox" id="checkbox-1" />
+						<label for="checkbox-1">Full time</label>
+					</div>
+					<div>
+						<input type="checkbox" id="checkbox-2" />
+						<label for="checkbox-2">Freelance & Projects</label>
+					</div>
+				</div>
+
+				<div class="animate btn-container">
+					<button class="btn-done" id="doneButton">Done</button>
+					<button class="btn-cancel">Cancel</button>
+				</div>
+			</div>
+
+			<!-- Settings saved message -->
+			<div
+				style="display: none"
+				class="settings-saved animate"
+				id="settingsMessage">
+				<p>Settings saved!</p>
+				<i class="bx bxs-check-circle"></i>
+			</div>
+		</main>
+		<script src="main.js"></script>
+	</body>
+</html>

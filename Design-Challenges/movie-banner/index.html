@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link
+			href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+			rel="stylesheet" />
+		<title>Movie Banner</title>
+	</head>
+	<body>
+		<div
+			class="relative flex items-center jusitfy-center w-full h-screen bg-[#000000]">
+			<img
+				id="bg-img"
+				class="absolute top-0 left-0 w-full h-100 w-full h-screen object-cover opacity-[0.5] overflow-hidden [mask-image:linear-gradient(black_10%,transparent)]"
+				src="https://e1.pxfuel.com/desktop-wallpaper/354/1014/desktop-wallpaper-8-narcos-narcos.jpg"
+				alt="img" />
+			<div
+				id="overlay"
+				class="absolute left-0 top-0 w-full h-screen bg-neutral-700/20"></div>
+
+			<div
+				id="banner"
+				class="relative flex mx-auto w-[80%] h-[6rem] bg-black text-gray-300 z-10 overflow-hidden">
+				<img
+					class="absolute -left-20 top-5 opacity-[80%] w-[15rem] h-auto object-cover scale-[1.5] rounded-lg shadow-lg"
+					src="https://rukminim2.flixcart.com/image/850/1000/l071d3k0/poster/z/x/y/medium-tv-show-narcos-on-good-quality-hd-quality-wallpaper-original-imagcfe3fdwaeyzj.jpeg?q=90&crop=false"
+					alt="img" />
+
+				<div
+					class="absolute right-[70%] top-[30%] md:right-[40%] md:top-[25%] hidden sm:flex sm:flex-col items-start ml-3 md:ml-0 md:items-center z-50">
+					<p class="uppercase font-extralight text-sm md:text-md lg:text-lg">
+						new season of
+					</p>
+					<h1
+						class="uppercase font-extrabold text-xl md:text-2xl lg:text-4xl tracking-widest">
+						narcos
+					</h1>
+				</div>
+
+				<button
+					class="absolute top-[25%] right-8 uppercase font-extralight text-gray-300 text-xs md:text-sm bg-red-500 p-3 md:p-4 rounded-md z-10 shadow-md hover:shadow-white/50 hover:bg-red-700 transition-all duration-300 easy">
+					watch on netflix
+				</button>
+				<i
+					id="close"
+					class="bx bx-x text-xl font-white z-10 absolute right-1 top-1 cursor-pointer"></i>
+			</div>
+		</div>
+		<script src="main.js"></script>
+	</body>
+</html>

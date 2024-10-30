@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script
+			src="https://unpkg.com/react@17/umd/react.production.min.js"
+			crossorigin></script>
+		<script
+			src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"
+			crossorigin></script>
+		<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+		<link
+			href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+			rel="stylesheet" />
+		<title>Quiz App</title>
+	</head>
+	<body>
+		<div id="root"></div>
+		<script type="text/babel">
+			const { useState, useEffect } = React;
+			//Questions
+			const questions = [
+				{
+					question: "What does CSS stand for?",
+					options: [
+						"Computer Style Sheets",
+						"Creative Style Sheets",
+						"Cascading Style Sheets",
+						"Colorful Style Sheets",
+					],
+					answer: "Cascading Style Sheets",
+				},
+				{
+					question:
+						"Where in an HTML document is the correct place to refer to an external style sheet?",
+					options: [
+						"In the <head> section",
+						"At the end of the document",
+						"In the <body> section",
+					],
+					answer: "In the <head> section",
+				},
+				{
+					question: "Which HTML tag is used to define an internal style sheet?",
+					options: ["<style>", "<css>", "<script>"],
+					answer: "<style>",
+				},
+				{
+					question: "Which is the correct CSS syntax?",
+					options: [
+						"{body:color=black;}",
+						"body:color=black;",
+						"{body;color:black;}",
+						"body {color: black;}",
+					],
+					answer: "body {color: black;}",
+				},
+				{
+					question: "How do you insert a comment in a CSS file?",
+					options: [
+						"// this is a comment",
+						"/* this is a comment */",
+						"' this is a comment",
+						"// this is a comment //",
+					],
+					answer: "/* this is a comment */",
+				},
+				{
+					question: "Which property is used to change the background color?",
+					options: ["color", "background-color", "bgcolor", "background"],
+					answer: "background-color",
+				},
+				{
+					question:
+						"How do you make each word in a text start with a capital letter?",
+					options: [
+						"text-transform:capitalize",
+						"text-style:capitalize",
+						"transform:capitalize",
+						"You can't do that with CSS",
+					],
+					answer: "text-transform:capitalize",
+				},
+				{
+					question: "Which CSS property controls the text size?",
+					options: ["font-style", "text-size", "font-size", "text-style"],
+					answer: "font-size",
+				},
+				{
+					question: "How do you display hyperlinks without an underline?",
+					options: [
+						"a {text-decoration:none;}",
+						"a {underline:none;}",
+						"a {decoration:no-underline;}",
+						"a {text-decoration:no-underline;}",
+					],
+					answer: "a {text-decoration:none;}",
+				},
+				{
+					question: "Which property is used to change the font of an element?",
+					options: ["font-family", "font-style", "font-weight", "font-size"],
+					answer: "font-family",
+				},
+			];
+
+			//Statert Page
+			const StartPage = ({ onStart }) => {
+				return (
+					<div class="max-w-md text-slate-200 text-center">
+						<i class="bx bxl-css3 text-[5rem] mb-4"></i>
+						<h1 class="uppercase font-bold text-xl my-2">Quiz App</h1>
+						<h2 class="font-semibold mb-4">Test your CSS knowledge</h2>
+						<p class="text-sm text-neutral-400">
+							Test your CSS knowledge with out quiz app and see if you're a true
+							web design whiz!
+						</p>
+						<button
+							class="max-w-[10rem] w-full px-6 py-3 bg-sky-600 rounded-full mt-8 hover:bg-neutral-950 border-2 border-sky-600 hover:border-neutral-700 transition-all duration-300 easy hover:shadow-sm hover:shadow-white/50"
+							onClick={onStart}>
+							Start
+						</button>
+					</div>
+				);
+			};
+
+			//Quiz Page
+			const QuizPage = ({
+				question,
+				onNext,
+				currentQuestionIndex,
+				setIsSubmitted,
+				updateScore,
+			}) => {
+				const [selectedOption, setSelectedOption] = useState(null);
+				const [isCorrect, setIsCorrect] = useState(null);
+				const [isSubmitted, setIsSubmittedState] = useState(false);
+				const [correctOption, setCorrectOption] = useState(null);
+
+				useEffect(() => {
+					setSelectedOption(null);
+					setIsCorrect(null);
+					setIsSubmittedState(false);
+					setCorrectOption(null);
+				}, [currentQuestionIndex]);
+
+				const handleOptionClick = (option) => {
+					if (!isSubmitted) {
+						setSelectedOption(option);
+						setIsCorrect(null);
+					}
+				};
+
+				const handleSubmit = () => {
+					if (selectedOption === question.answer) {
+						setIsCorrect(true);
+						updateScore((prevScore) => prevScore + 1);
+					} else {
+						setIsCorrect(false);
+					}
+					setIsSubmitted(true);
+					setIsSubmittedState(true);
+					setCorrectOption(question.answer);
+				};
+
+				return (
+					<div class="max-w-[500px] w-full text-slate-200">
+						<div class="">
+							<div class="flex justify-between mb-4 [&>div]:w-[8%] [&>div]:h-[4px]  [&>div]:rounded-full">
+								{questions.map((_, index) => (
+									<div
+										key={index}
+										className={
+											index <= currentQuestionIndex
+												? "bg-sky-500"
+												: "bg-slate-600/50"
+										}></div>
+								))}
+							</div>
+							<div class="text-end">
+								{currentQuestionIndex + 1} / {questions.length}
+							</div>
+						</div>
+						<div class="text-center text-2xl my-8">
+							<h2>{question.question}</h2>
+						</div>
+						<ul class="text-center [&>li]:p-4 [&>li]:rounded-full flex flex-col gap-4 [&>li]:cursor-pointer [&>li]:transition-all [&>li]:duration-300 [&>li]:easy">
+							{question.options.map((option, index) => (
+								<li
+									key={index}
+									class={`hover:bg-slate-500/20 bg-slate-600/20 ${
+										selectedOption === option
+											? isCorrect === null
+												? "bg-slate-400/60"
+												: isCorrect
+												? "bg-green-500"
+												: "bg-red-500"
+											: correctOption === option
+											? "bg-green-500"
+											: ""
+									}`}
+									onClick={() => handleOptionClick(option)}>
+									{option}
+								</li>
+							))}
+						</ul>
+
+						{!isSubmitted ? (
+							<button
+								class="flex justify-center items-center mx-auto w-[8rem] px-6 py-3 my-6 bg-sky-600 rounded-full hover:bg-neutral-950 border-2 border-sky-600 hover:border-neutral-700 transition-all duration-300 easy hover:shadow-sm hover:shadow-white/50"
+								onClick={handleSubmit}
+								disabled={selectedOption === null}>
+								Submit
+							</button>
+						) : (
+							<button
+								class="flex justify-center items-center mx-auto w-[8rem] px-6 py-3 my-6 bg-sky-600 rounded-full hover:bg-neutral-950 border-2 border-sky-600 hover:border-neutral-700 transition-all duration-300 easy hover:shadow-sm hover:shadow-white/50"
+								onClick={onNext}>
+								Next
+							</button>
+						)}
+					</div>
+				);
+			};
+
+			const ResultPage = ({ score, totalQuestions, onRestart }) => {
+				return (
+					<div class="max-w-[500px] w-full text-slate-200">
+						<div class="text-center text-2xl my-8">
+							<i class="bx bxs-party text-7xl my-6"></i>
+							<h2>Congratulations!</h2>
+						</div>
+						<div class="text-center text-2xl my-8">
+							<h3>
+								You scored{" "}
+								<span class="text-sky-600">
+									{score} / {totalQuestions}
+								</span>{" "}
+								right answers.
+							</h3>
+						</div>
+						<button
+							class="flex justify-center items-center mx-auto w-[10rem] px-6 py-3 my-6 bg-sky-600 rounded-full hover:bg-neutral-950 border-2 border-sky-600 hover:border-neutral-700 transition-all duration-300 easy hover:shadow-sm hover:shadow-white/50"
+							onClick={onRestart}>
+							Restart Quiz
+						</button>
+					</div>
+				);
+			};
+
+			function App() {
+				const [currentPage, setCurrentPage] = useState("start");
+				const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+				const [isSubmitted, setIsSubmitted] = useState(false);
+				const [score, setScore] = useState(0);
+				const [animationClass, setAnimationClass] = useState("fade-in");
+
+				const handleStart = () => {
+					setAnimationClass("fade-out");
+					setTimeout(() => {
+						setCurrentPage("quiz");
+						setAnimationClass("fade-in");
+					}, 500);
+				};
+
+				const handleNext = () => {
+					setTimeout(() => {
+						setAnimationClass("fade-out");
+						if (currentQuestionIndex < questions.length - 1) {
+							setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+						} else {
+							setCurrentPage("result");
+						}
+						setIsSubmitted(false);
+						setAnimationClass("fade-in");
+					}, 500);
+				};
+
+				const handleRestart = () => {
+					setAnimationClass("fade-out");
+					setTimeout(() => {
+						setCurrentPage("start");
+						setCurrentQuestionIndex(0);
+						setIsSubmitted(false);
+						setScore(0);
+						setAnimationClass("fade-in");
+					}, 500);
+				};
+
+				return (
+					<div class="w-full h-full overflow-hidden">
+						<div class="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+
+						<main
+							class={`w-full h-screen flex justify-center items-center overflow-hidden realtive ${animationClass}`}>
+							{currentPage === "start" && <StartPage onStart={handleStart} />}
+							{currentPage === "quiz" && (
+								<QuizPage
+									question={questions[currentQuestionIndex]}
+									onNext={handleNext}
+									currentQuestionIndex={currentQuestionIndex}
+									setIsSubmitted={setIsSubmitted}
+									updateScore={setScore}
+								/>
+							)}
+
+							{currentPage === "result" && (
+								<ResultPage
+									score={score}
+									totalQuestions={questions.length}
+									onRestart={handleRestart}
+								/>
+							)}
+						</main>
+					</div>
+				);
+			}
+
+			ReactDOM.render(<App />, document.getElementById("root"));
+		</script>
+	</body>
+</html>
